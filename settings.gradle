@@ -1,0 +1,5 @@
+rootProject.name = 'zoo'
+
+include 'zoo-tiger',
+		'zoo-panda',
+        'zoo-keeper'

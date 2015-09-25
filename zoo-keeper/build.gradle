@@ -1,0 +1,10 @@
+jar {
+    baseName = 'zoo-keeper'
+    version = '0.0.1-SNAPSHOT'
+}
+
+dependencies {
+    compile('org.springframework.cloud:spring-cloud-starter-eureka-server:1.0.0.RELEASE') {
+        exclude(module: 'servlet-api')
+    }
+}
