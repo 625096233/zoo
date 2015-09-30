@@ -25,7 +25,7 @@ public class IndexController {
         this.facade = facade;
     }
 
-    @ModelAttribute
+    @ModelAttribute("user")
     public Iterable<User> user() {
         return facade.findAllUser();
     }

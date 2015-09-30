@@ -2,3 +2,6 @@
 .gradle
 *.iml
 build
+node_modules
+zoo-panda/**/resources/static
+zoo-panda/**/resources/templates
