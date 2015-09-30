@@ -5,7 +5,6 @@ var gulp            = require('gulp'),
     sourcemaps      = require('gulp-sourcemaps'),
     streamify       = require('gulp-streamify'),
     uglify          = require('gulp-uglify'),
-    debowerify      = require('debowerify'),
     watchify        = require('watchify'),
     buffer          = require('vinyl-buffer'),
     browserify      = require('browserify'),
@@ -26,7 +25,7 @@ function browserifyFile(file) {
         browserified.on('update', bundle);
     }
 
-    [debowerify, babelify].forEach(function(transform) { browserified.transform(transform) });
+    [babelify].forEach(function(transform) { browserified.transform(transform) });
     function bundle() {
         var browserifyStream = browserified.bundle();
         return browserifyStream
