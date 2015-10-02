@@ -3,13 +3,56 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout">
     <body>
-        <div layout:fragment="content">
-            Hello World from Panda!
-            <table>
-                <tr th:each="u : ${user}">
-                    <td th:text="${u.name}"></td>
-                </tr>
-            </table>
+        <div layout:fragment="content" >
+            <div class="user-content">
+                <div class="row">
+                    <div class="col-xs-3 account-image">
+                        <img src="http://www.ochenta.derideal.net/avatars/avatars2/ren1.png" class="img-responsive" />
+                    </div>
+                    <div class="col-xs-9 account-information">
+                        <h1>
+                            Waldemar Rittscher
+                            <a href="#" class="pull-right"><i class="fa fa-pencil"></i></a>
+                        </h1>
+                        <div class="information">
+                            <span><i class="fa fa-envelope"></i> <a href="mailto:waldemar.rittscher@mail.de">waldemar.rittscher@mail.de</a></span>
+                            <span><i class="fa fa-home"></i> Brauereistraße 6, 67549 Worms</span>
+                            <span><i class="fa fa-clock-o"></i> 25 Jahre alt</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped stock-table ">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Anzahl</th>
+                            <th>Gesamtwert</th>
+                            <th>Entwicklung</th>
+                            <th>Aktueller Stückpreis</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <a href="">
+                            <tr>
+                                <td>BMW Aktie</td>
+                                <td>5</td>
+                                <td>26,60 €</td>
+                                <td>+ 0,25</td>
+                                <td>5,32 €</td>
+                            </tr>
+                        </a>
+                        <tr>
+                            <td>Audi Aktie</td>
+                            <td>2</td>
+                            <td>10,44 €</td>
+                            <td>+ 0,25</td>
+                            <td>5,22 €</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </body>
 </html>

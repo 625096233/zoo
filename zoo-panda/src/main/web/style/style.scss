@@ -1,0 +1,68 @@
+$color--grey-50: #e7e7e7;
+$color--grey-400: #888;
+$color--grey-500: #777;
+$color--grey-700: #333;
+
+.navbar-header {
+  .navbar-toggle {
+    color: $color--grey-400;
+    font-size: 17px;
+    padding: 4px 12px;
+  }
+}
+
+.user-content {
+  color: $color--grey-400;
+  text-decoration: none;
+
+  a, a:hover, a:visited {
+    color: $color--grey-400;
+    text-decoration: none;
+  }
+  a:hover {  color: $color--grey-700;  }
+
+  .account-image {
+    border-right: 1px solid $color--grey-50;
+
+    img {
+      border-radius: 15px;
+      margin-left: auto;
+      margin-right: auto
+    }
+  }
+
+  .account-information {
+
+    h1 {
+      color: $color--grey-700;
+      margin: 2px 0 10px;
+
+      a, a:hover, a:visited {
+        padding-top: 15px;
+        font-size: 20px;
+      }
+
+    }
+
+    .information {
+      padding-left: 5px;
+
+
+      span {
+        display: block;
+        font-style: italic;
+      }
+    }
+  }
+
+  .table-responsive {
+    margin-top: 20px;
+
+    table {
+      th, td {
+        color: $color--grey-700;
+        text-align: center;
+      }
+    }
+  }
+}

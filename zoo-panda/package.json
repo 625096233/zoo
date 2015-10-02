@@ -5,11 +5,13 @@
   "author": "Waldemar Rittscher",
   "devDependencies": {
     "babelify": "^6.1.3",
+    "bootstrap": "^3.3.5",
     "browserify": "^10.2.4",
     "browserify-istanbul": "^0.2.1",
     "chai": "^3.2.0",
     "del": "^1.2.0",
     "event-stream": "^3.3.1",
+    "font-awesome": "^4.4.0",
     "gulp": "^3.9.0",
     "gulp-cli": "^0.3.0",
     "gulp-concat": "^2.6.0",

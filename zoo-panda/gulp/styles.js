@@ -11,7 +11,9 @@ var gulp        = require('gulp'),
 gulp.task('styles', function () {
     var vendorStyles = gulp.src([
         'node_modules/normalize.css/normalize.css',
-        'node_modules/material-design-lite/material.css'
+        'node_modules/bootstrap/dist/css/bootstrap.css',
+        'node_modules/bootstrap/dist/css/bootstrap-theme.css',
+        'node_modules/font-awesome/css/font-awesome.css'
     ]);
     var applicationStyles = gulp.src(['src/main/web/style/**/*.scss']).pipe(sass({
             sourceMap: 'sass',
