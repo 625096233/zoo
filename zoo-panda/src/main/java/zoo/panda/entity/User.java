@@ -1,4 +1,4 @@
-package zoo.panda.data.entity;
+package zoo.panda.entity;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 

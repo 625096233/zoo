@@ -3,5 +3,4 @@
 *.iml
 build
 node_modules
-zoo-panda/**/resources/static
-zoo-panda/**/resources/templates
+zoo-panda-ui/**/resources/static

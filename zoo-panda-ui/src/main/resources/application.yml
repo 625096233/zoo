@@ -1,6 +1,6 @@
 spring:
   application:
-    name: panda
+    name: panda-ui
 
 eureka:
   client:

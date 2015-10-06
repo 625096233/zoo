@@ -5,5 +5,5 @@ var gulp        = require('gulp'),
 gulp.task('run', ['clean'], function(done) {
     global.production = false;
     done = done || function() {};
-    runSequence(['lint',  'styles', 'browserify', 'templates'], 'watch', done)
+    runSequence(['lint', 'styles', 'browserify', 'templates'], 'watch', done)
 });

@@ -1,8 +1,8 @@
-package zoo.panda.data.repository;
+package zoo.panda.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
-import zoo.panda.data.entity.User;
+import zoo.panda.entity.User;
 
 /**
  * @author Waldemar Rittscher
