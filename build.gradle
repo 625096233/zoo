@@ -38,6 +38,8 @@ configure(subprojects) {
     dependencies {
         compile 'org.springframework.boot:spring-boot-starter-actuator'
 
+        compile 'org.projectlombok:lombok:1.16.6'
+
         testCompile 'com.jayway.jsonpath:json-path'
         testCompile "org.springframework.boot:spring-boot-starter-test"
     }

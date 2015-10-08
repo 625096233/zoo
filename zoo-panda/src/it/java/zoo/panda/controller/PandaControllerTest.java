@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Bootstrap.class)
-public class UserControllerTest {
+public class PandaControllerTest {
 
 	@Autowired
 	private WebApplicationContext webApplicationContext;
@@ -43,7 +43,7 @@ public class UserControllerTest {
 
 	@Test
 	public void canReadAllUser() throws Exception {
-		mockMvc.perform(get("/rest/user/all"))
+		mockMvc.perform(get("/rest/panda/all"))
 				.andDo(MockMvcResultHandlers.print())
 				.andExpect(status().is2xxSuccessful())
 				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
