@@ -2,5 +2,5 @@ rootProject.name = 'zoo'
 
 include 'zoo-tiger',
 		'zoo-panda',
-		'zoo-panda-ui',
+		'zoo-web',
         'zoo-keeper'
