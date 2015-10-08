@@ -36,8 +36,9 @@ configure(subprojects) {
     }
 
     dependencies {
-        compile 'org.springframework.boot:spring-boot-starter-logging'
         compile 'org.springframework.boot:spring-boot-starter-actuator'
+
+        testCompile 'com.jayway.jsonpath:json-path'
         testCompile "org.springframework.boot:spring-boot-starter-test"
     }
 
