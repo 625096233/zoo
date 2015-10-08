@@ -1,0 +1,7 @@
+jar {
+    baseName = 'zoo-authentication'
+    version = '0.0.1-SNAPSHOT'
+}
+
+dependencies {
+}

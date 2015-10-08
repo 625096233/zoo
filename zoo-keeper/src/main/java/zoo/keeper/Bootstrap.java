@@ -1,9 +1,9 @@
-package zoo.panda.ui;
+package zoo.keeper;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,13 +13,13 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan
-@EnableHystrix
+@EnableEurekaServer
 @EnableDiscoveryClient
 @EnableAutoConfiguration
-public class PandaUiTamer {
+public class Bootstrap {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PandaUiTamer.class, args);
+		SpringApplication.run(Bootstrap.class, args);
 	}
 
 }

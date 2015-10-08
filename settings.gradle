@@ -3,4 +3,5 @@ rootProject.name = 'zoo'
 include 'zoo-tiger',
 		'zoo-panda',
 		'zoo-web',
-        'zoo-keeper'
+        'zoo-keeper',
+        'zoo-authentication'

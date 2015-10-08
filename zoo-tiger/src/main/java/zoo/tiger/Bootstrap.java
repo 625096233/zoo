@@ -12,10 +12,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
-public class TigerTamer {
+public class Bootstrap {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TigerTamer.class, args);
+		SpringApplication.run(Bootstrap.class, args);
 	}
 
 }
