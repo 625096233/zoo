@@ -1,3 +1,3 @@
-insert into user (id, name) values
-  (1, 'Waldemar'),
-  (2, 'Natalie');
+insert into panda (id, name, age) values
+  (1, 'Waldemar', 25),
+  (2, 'Natalie', 25);
