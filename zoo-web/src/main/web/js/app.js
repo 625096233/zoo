@@ -2,10 +2,10 @@
 (function() {
     var angular = require('angular');
     angular.element(document).ready(function() {
-        angular.module('Panda.UI', [
+        angular.module('Zoo.UI', [
             require('angular-ui-router'),
             require('angular-material')])
         .config(require('./config'));
-        angular.bootstrap(document, ['Panda.UI']);
+        angular.bootstrap(document, ['Zoo.UI']);
     });
 })();
