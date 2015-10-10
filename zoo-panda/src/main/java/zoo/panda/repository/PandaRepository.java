@@ -9,4 +9,5 @@ import zoo.panda.entity.Panda;
  */
 @Repository
 public interface PandaRepository extends PagingAndSortingRepository<Panda, Long> {
+    Panda findPandaByName(String name);
 }

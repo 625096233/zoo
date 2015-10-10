@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import zoo.panda.Bootstrap;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -42,9 +43,16 @@ public class PandaControllerTest {
 	}
 
 	@Test
-	public void canReadAllUser() throws Exception {
-		mockMvc.perform(get("/panda/all"))
-				.andDo(MockMvcResultHandlers.print())
+	public void canGetPandaWithNameWaldemar() throws Exception {
+		mockMvc.perform(get("/panda?name=Waldemar"))
+				.andExpect(status().is2xxSuccessful())
+				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+				.andExpect(jsonPath("$.name", is("Waldemar")));
+	}
+
+	@Test
+	public void canGetAllPandas() throws Exception {
+		mockMvc.perform(get("/all"))
 				.andExpect(status().is2xxSuccessful())
 				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("$[?(@.name == Waldemar)]", notNullValue()));

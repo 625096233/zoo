@@ -21,11 +21,14 @@ public class Panda extends AbstractPersistable<Long> {
 
 	private int age;
 
-    public static Panda createPanda(String name, int age) {
+    public static Panda create(String name, int age) {
         Panda panda = new Panda();
         panda.name = name;
         panda.age = age;
         return panda;
     }
 
+    public static Panda createEmpty() {
+        return new Panda();
+    }
 }
