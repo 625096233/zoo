@@ -43,7 +43,7 @@ public class PandaControllerTest {
 
 	@Test
 	public void canReadAllUser() throws Exception {
-		mockMvc.perform(get("/rest/panda/all"))
+		mockMvc.perform(get("/panda/all"))
 				.andDo(MockMvcResultHandlers.print())
 				.andExpect(status().is2xxSuccessful())
 				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))

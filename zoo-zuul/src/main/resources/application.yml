@@ -1,0 +1,25 @@
+server:
+  port: 8765
+
+spring:
+  application:
+    name: zuul
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  ignoredServices: "*"
+  routes:
+    panda:
+      path: /panda/**
+
+logging:
+  level:
+    org: INFO
+    ROOT: INFO
