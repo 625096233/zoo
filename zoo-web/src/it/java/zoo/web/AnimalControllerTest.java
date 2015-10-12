@@ -18,8 +18,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 /**
  * @author Waldemar Rittscher
  */
-@ActiveProfiles("test")
 @WebAppConfiguration
+@ActiveProfiles("test")
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Boostrap.class)
 public class AnimalControllerTest {
