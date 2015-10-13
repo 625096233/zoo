@@ -16,10 +16,10 @@ import org.springframework.context.annotation.Configuration;
 @EnableHystrix
 @EnableDiscoveryClient
 @EnableAutoConfiguration
-public class Boostrap {
+public class Bootstrap {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Boostrap.class, args);
+		SpringApplication.run(Bootstrap.class, args);
 	}
 
 }

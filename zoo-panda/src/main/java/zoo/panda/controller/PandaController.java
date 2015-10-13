@@ -9,6 +9,7 @@ import zoo.panda.entity.Panda;
 import zoo.panda.repository.PandaRepository;
 
 import java.util.Collections;
+import java.util.Random;
 
 /**
  * @author w.rittscher
@@ -18,6 +19,8 @@ import java.util.Collections;
 public class PandaController {
 
 	private final PandaRepository pandaRepository;
+
+	private final Random random = new Random();
 
 	@Autowired
 	public PandaController(PandaRepository pandaRepository) {
@@ -33,6 +36,10 @@ public class PandaController {
 	@RequestMapping("all")
 	@HystrixCommand(fallbackMethod = "getAllPandasFallback")
 	public Iterable<Panda> getAllPandas() {
+		int randomInt = random.nextInt(10) + 1;
+		if (randomInt % 3 == 0) {
+			throw new RuntimeException("Hystrix trigger");
+		}
 		return pandaRepository.findAll();
 	}
 

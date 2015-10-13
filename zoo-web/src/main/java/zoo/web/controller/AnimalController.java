@@ -9,6 +9,7 @@ import zoo.web.repository.PandaRepository;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author Waldemar Rittscher
@@ -33,6 +34,5 @@ public class AnimalController {
     public List<Panda> getAllPandasFallback() {
         return Collections.emptyList();
     }
-
 
 }
