@@ -4,8 +4,6 @@ server:
 spring:
   application:
     name: panda
-  main:
-    show_banner: true
 
 logging:
   level:

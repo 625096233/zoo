@@ -5,6 +5,7 @@ include 'zoo-tiger',
 		'zoo-web',
         'zoo-eureka',
         'zoo-authentication',
-        'zoo-zuul'
-include 'zoo-hystrix'
+        'zoo-zuul',
+        'zoo-hystrix',
+        'zoo-turbine'
 

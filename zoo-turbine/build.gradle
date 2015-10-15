@@ -1,0 +1,9 @@
+jar {
+    baseName = 'zoo-turbine'
+    version = '0.0.1-SNAPSHOT'
+}
+
+dependencies {
+    compile 'org.springframework.cloud:spring-cloud-netflix-turbine'
+    compile 'org.springframework.cloud:spring-cloud-starter-turbine-amqp'
+}
