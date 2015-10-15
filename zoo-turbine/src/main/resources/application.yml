@@ -1,6 +1,6 @@
 spring:
   application:
-    name: panda
+    name: turbine
 
 endpoints:
   restart:
