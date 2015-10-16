@@ -9,6 +9,7 @@ dependencies {
 
     compile 'org.springframework.boot:spring-boot-starter-web'
 
-    compile 'org.springframework.cloud:spring-cloud-starter-eureka'
-    compile 'org.springframework.cloud:spring-cloud-starter-hystrix-amqp'
+    compile "org.springframework.cloud:spring-cloud-starter-eureka:${springCouldVersion}"
+    compile "org.springframework.cloud:spring-cloud-starter-hystrix:${springCouldVersion}"
+    compile "org.springframework.cloud:spring-cloud-netflix-hystrix-amqp:${springCouldVersion}"
 }

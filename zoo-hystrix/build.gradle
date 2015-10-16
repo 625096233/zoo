@@ -4,5 +4,7 @@ jar {
 }
 
 dependencies {
-    compile 'org.springframework.cloud:spring-cloud-starter-hystrix-dashboard'
+    compile "com.netflix.archaius:archaius-core:0.6.5" // hystrix requires it?!
+    compile "com.netflix.hystrix:hystrix-core:1.4.10" // why using rc?!
+    compile "org.springframework.cloud:spring-cloud-starter-hystrix-dashboard:${springCouldVersion}"
 }
