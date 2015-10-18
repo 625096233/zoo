@@ -23,5 +23,5 @@ gulp.task('styles', function () {
         .pipe(gulpif(global.production, streamify(minifyCss)))
         .pipe(gulpif(global.production, sourcemaps.write('./')))
         .pipe(concat('style.css'))
-        .pipe(gulp.dest('src/main/resources/static/style'));
+        .pipe(gulp.dest('src/main/resources/public/style'));
 });

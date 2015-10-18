@@ -7,9 +7,9 @@ var Config = function($locationProvider, $urlRouterProvider, $stateProvider) {
     $locationProvider.html5Mode({enabled: true, requireBase: false});
     $urlRouterProvider.otherwise('/');
     $stateProvider
-        .state('index', {
+        .state('home', {
             url: '/',
-            templateUrl: 'views/index.html'
+            templateUrl: 'views/home.html'
         });
 };
 module.exports = Config;

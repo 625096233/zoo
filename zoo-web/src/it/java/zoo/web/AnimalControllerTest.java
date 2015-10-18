@@ -6,9 +6,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -26,8 +24,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 /**
  * @author Waldemar Rittscher
  */
-@DirtiesContext
-@IntegrationTest
 @WebAppConfiguration
 @ActiveProfiles("test")
 @RunWith(SpringJUnit4ClassRunner.class)

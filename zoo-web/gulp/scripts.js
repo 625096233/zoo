@@ -34,7 +34,7 @@ function browserifyFile(file) {
             .pipe(gulpIf(global.production, sourcemaps.init()))
             .pipe(gulpIf(global.production, streamify(uglify({compress: { drop_console: true }}))))
             .pipe(gulpIf(global.production, sourcemaps.write('./')))
-            .pipe(gulp.dest('src/main/resources/static/js/'));
+            .pipe(gulp.dest('src/main/resources/public/js/'));
     }
     return bundle();
 }
