@@ -17,10 +17,9 @@ spring:
       preferTokenInfo: false
 
 security:
-  user:
-    password: user
-  ignored: /,/favicon.ico,/js/**,/style/**
-  sessions: ALWAYS
+    user:
+      password: none
+    ignored: /favicon.ico,/js/**,/style/**
 
 logging:
   level:

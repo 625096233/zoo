@@ -3,10 +3,11 @@ def gradleDir = "${rootProject.rootDir}/gradle"
 buildscript {
     repositories {
         jcenter()
-        maven { url 'http://repo.spring.io/libs-release' }
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
     }
     dependencies {
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.6.RELEASE'
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.7.RELEASE")
     }
 }
 

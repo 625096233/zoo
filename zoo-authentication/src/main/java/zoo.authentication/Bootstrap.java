@@ -9,11 +9,13 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  * @author w.rittscher
@@ -29,16 +31,23 @@ public class Bootstrap {
 	}
 
 	@Configuration
-	public static class SecurityConfig extends WebSecurityConfigurerAdapter {
+	public static class WebConfiguration extends WebMvcConfigurerAdapter {
 
-		@Autowired
-		private DatabaseUserDetailService userDetailService;
+		@Override
+		public void addViewControllers(ViewControllerRegistry registry) {
+			registry.addViewController("/login").setViewName("login");
+			registry.addViewController("/oauth/confirm_access").setViewName("authorize");
+		}
+
+	}
+
+	@Configuration
+	public static class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			http.formLogin()
 					.loginPage("/login")
-					.defaultSuccessUrl("/login/successful")
 					.permitAll()
 				.and()
 				.logout()
@@ -49,14 +58,10 @@ public class Bootstrap {
 		}
 
 		@Autowired
-		public void configureGlobal(AuthenticationManagerBuilder auth, UserDetailsService accountUserDetailService) throws Exception {
-			auth.userDetailsService(accountUserDetailService);
-		}
-
-		@Override
-		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		public void configureGlobal(AuthenticationManagerBuilder auth, DatabaseUserDetailService userDetailService) throws Exception {
 			auth.userDetailsService(userDetailService);
 		}
+
 	}
 
 	@Configuration
@@ -76,7 +81,13 @@ public class Bootstrap {
 			clients.inMemory()
 					.withClient("ui")
 					.secret("ui")
-					.authorizedGrantTypes("authorization_code", "refresh_token").scopes("openid");
+					.authorizedGrantTypes("authorization_code", "refresh_token");
+		}
+
+		@Override
+		public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
+			oauthServer.tokenKeyAccess("permitAll()")
+					   .checkTokenAccess("isAuthenticated()");
 		}
 	}
 
