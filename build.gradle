@@ -24,6 +24,7 @@ configure(subprojects) {
     targetCompatibility = 1.8
 
     ext {
+        projectVersion = '0.0.1-SNAPSHOT'
         springCouldVersion = '1.0.3.RELEASE'
     }
 

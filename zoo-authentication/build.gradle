@@ -1,7 +1,9 @@
 jar {
     baseName = 'zoo-authentication'
-    version = '0.0.1-SNAPSHOT'
+    version = projectVersion
 }
 
 dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile "org.springframework.cloud:spring-cloud-starter-oauth2:${springCouldVersion}"
 }
