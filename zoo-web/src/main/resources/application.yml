@@ -3,23 +3,9 @@ server:
 
 spring:
   application:
-    name: zoo-web
+    name: web
   main:
     show_banner: true
-  oauth2:
-    client:
-      clientId: ui
-      clientSecret: ui
-      accessTokenUri: http://localhost:3000/oauth/access_token
-      userAuthorizationUri:  http://localhost:3000/oauth/authorize
-    resource:
-      userInfoUri: http://localhost:3000/user
-      preferTokenInfo: false
-
-security:
-    user:
-      password: none
-    ignored: /favicon.ico,/js/**,/style/**
 
 logging:
   level:

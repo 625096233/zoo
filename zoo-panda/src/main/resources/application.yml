@@ -9,6 +9,9 @@ logging:
   level:
      org: INFO
 
+security:
+  sessions: NEVER
+
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 10

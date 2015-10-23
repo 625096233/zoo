@@ -8,6 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 /**
  * @author Waldemar Rittscher
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.Configuration;
 @EnableCircuitBreaker
 @EnableDiscoveryClient
 @SpringCloudApplication
+@EnableRedisHttpSession
 @EnableAutoConfiguration
 public class Bootstrap {
 

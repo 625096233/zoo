@@ -13,6 +13,10 @@ endpoints:
   health:
     sensitive: false
 
+security:
+  sessions: ALWAYS
+  ignored: /style/**, /js/**, /views/**, **/favicon.ico
+
 eureka:
   instance:
       metadataMap:
@@ -21,6 +25,8 @@ eureka:
 zuul:
   ignoredServices: "*"
   routes:
+    ui:
+      url: /web/**
     panda:
       path: /panda/**
 
