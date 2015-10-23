@@ -1,9 +1,8 @@
-'use strict';
-
 /**
  * @ngInject
  */
 var Config = function($locationProvider, $urlRouterProvider, $stateProvider) {
+    'use strict';
     $locationProvider.html5Mode({enabled: true, requireBase: false});
     $urlRouterProvider.otherwise('/login');
 
@@ -12,7 +11,16 @@ var Config = function($locationProvider, $urlRouterProvider, $stateProvider) {
             url: '/login',
             templateUrl: '/views/login.html',
             controller: 'LoginController',
-            controllerAs: 'loginController'
+            controllerAs: 'loginController',
+            resolve: {
+
+                /**
+                 * @ngInject
+                 */
+                User: function(LoginService) {
+                    return LoginService.loadUser();
+                }
+            }
         });
 };
 module.exports = Config;
