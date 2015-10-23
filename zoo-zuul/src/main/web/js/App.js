@@ -7,7 +7,8 @@
             require('angular-material')])
         .controller('LoginController', require('./controller/LoginController'))
         .factory('LoginService', require('./service/LoginService'))
-        .config(require('./Config'));
+        .config(require('./Config'))
+        .run(require('./Run'));
         angular.bootstrap(document, ['Zoo.Authentication']);
     });
 })();

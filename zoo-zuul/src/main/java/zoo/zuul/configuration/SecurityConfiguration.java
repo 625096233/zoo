@@ -2,6 +2,7 @@ package zoo.zuul.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -38,20 +39,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		HttpSessionCsrfTokenRepository tokenRepository = new HttpSessionCsrfTokenRepository();
 		tokenRepository.setHeaderName("X-XSRF-TOKEN");
 		http
-			.httpBasic()
-//			.formLogin()
-//				.loginPage("/login")
-//					.loginProcessingUrl("/authenticate")
-//					.successHandler((request, response, authentication) -> response.setStatus(HttpServletResponse.SC_OK))
-//					.failureHandler((request1, response1, exception) -> response1.setStatus(HttpServletResponse.SC_UNAUTHORIZED))
-//					.permitAll()
+			.httpBasic().disable()
+			.formLogin()
+				.loginPage("/login")
+				.loginProcessingUrl("/security/authenticate")
+				.successHandler((request, response, authentication) -> response.setStatus(HttpServletResponse.SC_ACCEPTED))
+				.failureHandler((request, response, exception) -> response.setStatus(HttpServletResponse.SC_UNAUTHORIZED))
+				.permitAll()
 			.and()
 			.exceptionHandling()
 					.authenticationEntryPoint((request2, response2, authException) -> response2.setStatus(HttpServletResponse.SC_UNAUTHORIZED))
 			.and()
 			.logout()
+				.logoutUrl("/security/logout")
+				.logoutSuccessHandler((request, response, authentication1) -> response.setStatus(HttpServletResponse.SC_OK))
+				.deleteCookies("JSESSIONID")
 				.permitAll()
-				.and()
+			.and()
 			.csrf()
 				.csrfTokenRepository(tokenRepository)
 				.and()

@@ -1,18 +1,23 @@
 /**
  * @ngInject
  */
-var LoginService = function($http) {
+var LoginService = function($http, $state) {
     'use strict';
     var self = this;
 
-    self.login = function(username, password) {
-        var headers = username && password ? {authorization : "Basic " + btoa(username + ":" + password)} : {};
-
-        $http.get("/security/user", {headers : headers}).success(function(response) {
-            self.authenticated = true;
+    self.loadUser = function() {
+        $http.get("/security/user").success(function(response) {
             self.user = response.name;
         }).error(function() {
-            self.authenticated = false;
+            delete self.user;
+            $state.go('login');
+        });
+    };
+
+    self.login = function(username, password) {
+        var data = `username=${username ? encodeURIComponent(username) : ''}&password=${password ? encodeURIComponent(password) : ''}`;
+        $http.post('/security/authenticate', data, { headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).success(function(data) {
+            return data;
         });
     };
 

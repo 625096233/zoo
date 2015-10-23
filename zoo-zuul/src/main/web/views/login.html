@@ -1,3 +1,10 @@
-<input type="text" data-ng-model="loginController.username" placeholder="Username" />
-<input type="password" data-ng-model="loginController.password" placeholder="Password" />
-<input type="submit" value="Login" data-ng-click="loginController.login()" />
+{{loginController.user}}
+
+<div data-ng-if="loginController.user">
+    <h1>Authenticate</h1>
+</div>
+<!--<div data-ng-if="!loginController.user">-->
+    <!--<input type="text" data-ng-model="loginController.username" placeholder="Username" />-->
+    <!--<input type="password" data-ng-model="loginController.password" placeholder="Password" />-->
+    <!--<input type="submit" value="Login" data-ng-click="loginController.login()" />-->
+<!--</div>-->
