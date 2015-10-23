@@ -4,7 +4,6 @@ include 'zoo-tiger',
 		'zoo-panda',
 		'zoo-web',
         'zoo-eureka',
-        'zoo-authentication',
         'zoo-zuul',
         'zoo-hystrix',
         'zoo-turbine'
