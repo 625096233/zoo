@@ -58,7 +58,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.and()
 			.csrf()
 				.csrfTokenRepository(tokenRepository)
-				.and()
+			.and()
 				.addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
 			.authorizeRequests()
 				.antMatchers("/", "/login").permitAll()

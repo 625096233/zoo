@@ -10,7 +10,6 @@ var LoginService = function($http, $state, $q) {
         $http.get("/security/user").success(function(response) {
             deferred.resolve(response);
         }).error(function() {
-            delete self.user;
             $state.go('login');
             deferred.reject();
         });
@@ -23,6 +22,8 @@ var LoginService = function($http, $state, $q) {
         $http.post('/security/authenticate', data, { headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).success(function() {
             self.loadUser().then(function(user) {
                 deferred.resolve(user);
+            }).error(function() {
+                deferred.reject();
             });
         }).error(function() {
             deferred.reject();
