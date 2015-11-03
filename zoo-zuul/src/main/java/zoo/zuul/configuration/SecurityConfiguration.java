@@ -2,7 +2,6 @@ package zoo.zuul.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -29,7 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	public void configureUser(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
-			.withUser("user").password("user").roles("USER")
+			.withUser("user").password("user").roles("PANDA_ADMIN")
 				.and()
 			.withUser("admin").password("admin").roles("USER", "ADMIN");
 	}
@@ -48,7 +47,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.permitAll()
 			.and()
 			.exceptionHandling()
-					.authenticationEntryPoint((request2, response2, authException) -> response2.setStatus(HttpServletResponse.SC_UNAUTHORIZED))
+				.authenticationEntryPoint((request2, response2, authException) -> response2.setStatus(HttpServletResponse.SC_UNAUTHORIZED))
 			.and()
 			.logout()
 				.logoutUrl("/security/logout")
@@ -61,7 +60,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.and()
 				.addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
 			.authorizeRequests()
-				.antMatchers("/", "/login").permitAll()
+				.antMatchers("/", "/login", "/security/user").permitAll()
+				.antMatchers("/panda/**").hasRole("PANDA_TAMER")
+				.antMatchers("/tiger/**").hasRole("PANDA_TAMER")
 				.anyRequest().authenticated();
 	}
 
